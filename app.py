@@ -10,10 +10,10 @@ def index():
 
 @app.route("/predict", methods=["POST"])
 def prediction():
-    sepal_length = request.form["sl"]
-    sepal_width = request.form["sw"]
-    petal_length = request.form["pl"]
-    petal_width = request.form["pw"]
+    sepal_length = float(request.form["sl"])
+    sepal_width = float(request.form["sw"])
+    petal_length = float(request.form["pl"])
+    petal_width = float(request.form["pw"])
 
     prediction_class = iris_data_prediction(sepal_length, sepal_width, petal_length, petal_width)
     return "<center><h1>ผลลัพธ์ของการพยากรณ์เป็นดอก {}</h1></center>".format(prediction_class)
